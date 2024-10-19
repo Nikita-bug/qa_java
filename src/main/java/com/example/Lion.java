@@ -2,15 +2,12 @@ package com.example;
 
 import java.util.List;
 
-public class Lion {
+public class Lion implements Kittens{
 
     boolean hasMane;
-    private Kittens kittens;
     private Feline feline;
 
-    public Lion(Kittens kittens) {
-        this.kittens = kittens;
-    }
+
 
     public Lion(Feline feline) {
         this.feline = feline;
@@ -22,13 +19,18 @@ public class Lion {
         } else if ("Самка".equals(sex)) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
     }
 
+    public int getKittens(int kittensCount) {
+        return kittensCount;
+    }
 
+
+    @Override
     public int getKittens() {
-        return kittens.getKittens();
+        return getKittens(2);
     }
 
     public boolean doesHaveMane() {

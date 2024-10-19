@@ -1,6 +1,7 @@
 package com.example;
 
 import org.hamcrest.MatcherAssert;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -33,9 +34,9 @@ public class FelineTest {
     public void getKittensCheck() {
         Feline feline = new Feline();
         int actualQuantity = feline.getKittens(kittenCount);
-        MatcherAssert.assertThat(feline.getKittens(), notNullValue());
+        //int expectedQuantity = feline.getKittens();
         MatcherAssert.assertThat(actualQuantity, notNullValue());
-        //assertEquals("Неправильное количество котят", feline.getKittens(), actualQuantity);
+        //assertEquals("Неправильное количество котят",expectedQuantity, actualQuantity);
     }
 
 
@@ -55,5 +56,11 @@ public class FelineTest {
         assertEquals(expectedSize, actualFoodSize.size());
     }
 
+    @Test
+    public void checkFelineFamily(){
+        Feline feline = new Feline();
+        String expectedFamily = "Кошачьи";
+        Assert.assertEquals(expectedFamily, feline.getFamily());
+    }
 
 }

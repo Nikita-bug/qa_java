@@ -1,11 +1,13 @@
 package com.example;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.lang.reflect.UndeclaredThrowableException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -39,5 +41,16 @@ public class LionTest {
         assertNotEquals(lion.doesHaveMane(), false);
     }
 
+    @Test(expected = Throwable.class)
+    public void checkLionSexException() throws Exception  {
+        Lion lion = new Lion("Неизвестный");
+    }
+
+    @Test
+    public void checkKittens(){
+        Lion lion = new Lion(feline);
+        int expectedKittenCount = 2;
+        Assert.assertEquals(expectedKittenCount, lion.getKittens());
+    }
 
 }
